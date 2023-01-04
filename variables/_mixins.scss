@@ -4,7 +4,3 @@
   align-items: $align;
   flex-direction: $direction;
 }
-
-@mixin shake {
-  animation: shake 0.7s infinite;
-}

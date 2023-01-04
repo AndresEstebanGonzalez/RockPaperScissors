@@ -4,7 +4,7 @@
 //VARIABLES
 @import "./variables/mixins";
 @import "./variables/colors";
-@import "./variables/keyframes";
+@import "./variables/animations";
 
 html,
 body {
@@ -22,6 +22,8 @@ body {
   height: 100vh;
 
   font-size: 8rem;
+
+  display: none;
 }
 .main {
   @include flex($direction: column);
@@ -52,13 +54,13 @@ body {
     }
 
     .rock:hover {
-      @include shake;
+      animation: $shake;
     }
     .paper:hover {
-      @include shake;
+      animation: $shake;
     }
     .scissor:hover {
-      @include shake;
+      animation: $shake;
     }
     .gnarly {
       display: none;
