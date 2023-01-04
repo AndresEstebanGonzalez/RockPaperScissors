@@ -4,6 +4,7 @@
 //VARIABLES
 @import "./variables/mixins";
 @import "./variables/colors";
+@import "./variables/keyframes";
 
 html,
 body {
@@ -14,26 +15,21 @@ body {
   overflow: hidden;
 }
 
-.main {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.play {
+  @include flex;
 
   width: 100vw;
   height: 100vh;
 
-  .play {
-    @include flexCenter;
+  font-size: 8rem;
+}
+.main {
+  @include flex($direction: column);
+  width: 100vw;
+  height: 100vh;
 
-    width: 100vw;
-    height: 100vh;
-
-    font-size: 8rem;
-
-    display: none;
-  }
   .top-sector {
-    @include flexCenter;
+    @include flex;
 
     width: 100vw;
     height: 10rem;
@@ -43,51 +39,33 @@ body {
     }
   }
   .middle-sector {
-    @include flexCenter;
+    @include flex($justify: space-around);
 
     width: 100vw;
     height: 50rem;
-    display: flex;
-    justify-content: space-around;
     img {
-      @include imageSpecs;
+      width: 35rem;
+      height: 35rem;
     }
     img:hover {
       scale: 190%;
     }
 
     .rock:hover {
-      animation: shake 0.7s infinite;
+      @include shake;
     }
     .paper:hover {
-      animation: shake 0.7s infinite;
+      @include shake;
     }
     .scissor:hover {
-      animation: shake 0.7s infinite;
+      @include shake;
     }
     .gnarly {
       display: none;
     }
-    @keyframes shake {
-      0% {
-        transform: translate(0px, 0px) rotate(0deg);
-      }
-      25% {
-        transform: translate(1px, 1px) rotate(1deg);
-      }
-      50% {
-        transform: translate(-1px, -1px) rotate(-1deg);
-      }
-      75% {
-        transform: translate(2px, -1px) rotate(2deg);
-      }
-      100% {
-        transform: translate(-1px, 1px) rotate(-1deg);
-      }
-    }
   }
   .bottom-sector {
-    @include flexCenter;
+    @include flex;
 
     width: 100vw;
     height: 20rem;

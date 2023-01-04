@@ -1,10 +1,10 @@
-@mixin flexCenter {
+@mixin flex($justify: center, $align: center, $direction: row) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
 }
 
-@mixin imageSpecs {
-  width: 35rem;
-  height: 35rem;
+@mixin shake {
+  animation: shake 0.7s infinite;
 }
