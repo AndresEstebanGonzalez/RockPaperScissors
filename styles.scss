@@ -22,8 +22,7 @@ body {
   height: 100vh;
 
   font-size: 8rem;
-
-  display: none;
+  cursor: default;
 }
 .main {
   @include flex($direction: column);

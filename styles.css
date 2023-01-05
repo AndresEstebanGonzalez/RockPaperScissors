@@ -50,7 +50,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-size: 8rem;
-  display: none;
+  cursor: default;
 }
 
 .main {
