@@ -10,60 +10,61 @@ play.style.display = "flex";
 main.style.display = "none";
 
 //Enter PLAY mode
-play.addEventListener("click", (e) => {
+play.addEventListener("click", () => {
   play.style.display = "none";
   main.style.display = "flex";
 });
 
 // Hand events
-rock.addEventListener("click", (e) => {
-  if (handIndex().win === "rock") {
-    console.log("TIE");
-  } else if (handIndex().win === "paper") {
-    console.log("YOU LOSE");
-  } else if (handIndex().win === "scissor") {
-    console.log("YOU WIN");
-  }
+
+rock.addEventListener("click", () => {
+  const ROCK_HAND = {
+    rock: "TIE",
+    paper: "YOU LOSE",
+    scissor: "YOU WIN",
+  };
+  const rockResult = ROCK_HAND[handIndex().win];
+  console.log(rockResult);
 });
 
-paper.addEventListener("click", (e) => {
-  if (handIndex().win === "paper") {
-    console.log("TIE");
-  } else if (handIndex().win === "scissor") {
-    console.log("YOU LOSE");
-  } else if (handIndex().win === "rock") {
-    console.log("YOU WIN");
-  }
+paper.addEventListener("click", () => {
+  const PAPER_HAND = {
+    rock: "YOU WIN",
+    paper: "TIE",
+    scissor: "YOU LOSE",
+  };
+  const paperResult = PAPER_HAND[handIndex().win];
+  console.log(paperResult);
 });
 
-scissor.addEventListener("click", (e) => {
-  if (handIndex().win === "scissor") {
-    console.log("TIE");
-  } else if (handIndex().win === "rock") {
-    console.log("YOU LOSE");
-  } else if (handIndex().win === "paper") {
-    console.log("YOU WIN");
-  }
+scissor.addEventListener("click", () => {
+  const SCISSOR_HAND = {
+    rock: "YOU LOSE",
+    paper: "YOU WIN",
+    scissor: "TIE",
+  };
+  const scissorResult = SCISSOR_HAND[handIndex().win];
+  console.log(scissorResult);
 });
 
-//Hand details
-rock = {
-  active: true,
-  win: "scissor",
-  emoji: "🗿",
-};
-paper = {
-  active: true,
-  win: "rock",
-  emoji: "📄",
-};
-scissor = {
-  active: true,
-  win: "paper",
-  emoji: "✂️",
-};
-
-const hand = [rock, paper, scissor];
+//Hand object
+const hand = [
+  (rock = {
+    active: true,
+    win: "scissor",
+    emoji: "🗿",
+  }),
+  (paper = {
+    active: true,
+    win: "rock",
+    emoji: "📄",
+  }),
+  (scissor = {
+    active: true,
+    win: "paper",
+    emoji: "✂️",
+  }),
+];
 
 //Random hand
 function handIndex() {

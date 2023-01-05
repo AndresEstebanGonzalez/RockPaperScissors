@@ -49,8 +49,11 @@ body {
   flex-direction: row;
   width: 100vw;
   height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
   font-size: 8rem;
-  cursor: default;
 }
 
 .main {
