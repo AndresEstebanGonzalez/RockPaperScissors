@@ -1,7 +1,78 @@
+// FONT
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+//VARIABLES
+@import "./variables/mixins";
+@import "./variables/colors";
+@import "./variables/animations";
+
 html,
 body {
   margin: 0;
   padding: 0;
   font-size: 10px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Fredoka One", cursive;
+  overflow: hidden;
+}
+
+.play {
+  @include flex;
+
+  width: 100vw;
+  height: 100vh;
+
+  font-size: 8rem;
+
+  display: none;
+}
+.main {
+  @include flex($direction: column);
+  width: 100vw;
+  height: 100vh;
+
+  .top-sector {
+    @include flex;
+
+    width: 100vw;
+    height: 10rem;
+    .app-title {
+      font-size: 4rem;
+      color: $black;
+    }
+  }
+  .middle-sector {
+    @include flex($justify: space-around);
+
+    width: 100vw;
+    height: 50rem;
+    img {
+      width: 35rem;
+      height: 35rem;
+    }
+    img:hover {
+      scale: 190%;
+    }
+
+    .rock:hover {
+      animation: $shake;
+    }
+    .paper:hover {
+      animation: $shake;
+    }
+    .scissor:hover {
+      animation: $shake;
+    }
+    .gnarly {
+      display: none;
+    }
+  }
+  .bottom-sector {
+    @include flex;
+
+    width: 100vw;
+    height: 20rem;
+    h1 {
+      margin-top: 5rem;
+    }
+  }
 }
