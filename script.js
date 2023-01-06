@@ -1,9 +1,9 @@
 const play = document.getElementById("play");
 const main = document.getElementById("main");
-let rock = document.getElementById("rock");
-let paper = document.getElementById("paper");
-let scissor = document.getElementById("scissor");
-let gnarly = document.getElementById("gnarly");
+let rockIcon = document.getElementById("rockIcon");
+let paperIcon = document.getElementById("paperIcon");
+let scissorIcon = document.getElementById("scissorIcon");
+let gnarlyIcon = document.getElementById("gnarlyIcon");
 
 // Play & Main default state
 play.style.display = "flex";
@@ -15,9 +15,35 @@ play.addEventListener("click", () => {
   main.style.display = "flex";
 });
 
-// Hand events
+//Hand object
+let rock = {
+  active: true,
+  win: "scissor",
+  emoji: "🗿",
+};
 
-rock.addEventListener("click", () => {
+let paper = {
+  active: true,
+  win: "rock",
+  emoji: "📄",
+};
+
+let scissor = {
+  active: true,
+  win: "paper",
+  emoji: "✂️",
+};
+
+let hand = [rock, paper, scissor];
+
+//Random hand
+function handIndex() {
+  let randomIndex = Math.floor(Math.random() * 3);
+  return hand[randomIndex];
+}
+
+// Hand events
+rockIcon.addEventListener("click", () => {
   const ROCK_HAND = {
     rock: "TIE",
     paper: "YOU LOSE",
@@ -27,7 +53,7 @@ rock.addEventListener("click", () => {
   console.log(rockResult);
 });
 
-paper.addEventListener("click", () => {
+paperIcon.addEventListener("click", () => {
   const PAPER_HAND = {
     rock: "YOU WIN",
     paper: "TIE",
@@ -37,7 +63,7 @@ paper.addEventListener("click", () => {
   console.log(paperResult);
 });
 
-scissor.addEventListener("click", () => {
+scissorIcon.addEventListener("click", () => {
   const SCISSOR_HAND = {
     rock: "YOU LOSE",
     paper: "YOU WIN",
@@ -46,28 +72,3 @@ scissor.addEventListener("click", () => {
   const scissorResult = SCISSOR_HAND[handIndex().win];
   console.log(scissorResult);
 });
-
-//Hand object
-const hand = [
-  (rock = {
-    active: true,
-    win: "scissor",
-    emoji: "🗿",
-  }),
-  (paper = {
-    active: true,
-    win: "rock",
-    emoji: "📄",
-  }),
-  (scissor = {
-    active: true,
-    win: "paper",
-    emoji: "✂️",
-  }),
-];
-
-//Random hand
-function handIndex() {
-  let randomIndex = Math.floor(Math.random() * 3);
-  return hand[randomIndex];
-}
